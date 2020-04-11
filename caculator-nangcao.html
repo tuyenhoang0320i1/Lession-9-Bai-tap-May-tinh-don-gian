@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Caculator</title>
+<style>
+    button {
+        width: 60px;
+        height: 60px;
+        margin-top: 5px;
+        font-size: 18px;
+        font-family: Arial;
+    }
+    input#screen {
+        width: 248px;
+        height: 60px;
+        text-align: right;
+        font-size: 32px;
+        font-weight: 550;
+    }
+    button#zero {
+        width: 124px;
+    }
+    div#caculator {
+        margin-left: 550px;
+        margin-top: 30px;
+    }
+    h1 {
+        text-align: center;
+        color: blue;
+    }
+</style>
+</head>
+<body>
+<!--/* B1: Ve giao dien HTML-->
+<!--//B2: Click so hien thi len man hinh-->
+<!--//B3 Tinh toan-->
+<!--//B4 Hien thi ket qua-->
+<!--*/ B5 Lam dep-->
+<h1>ADVANCED CALCULATOR</h1>
+    <div id="caculator">
+        <input id="screen"/>
+        <br>
+        <button>CE</button>
+        <button onclick="clearScreen()">C</button>
+        <button onclick="del()">⌫</button>
+        <button onclick="clickNumber('/')" >/</button>
+        <br>
+        <button onclick="clickNumber (7)">7</button>
+        <button onclick="clickNumber (8)">8</button>
+        <button onclick="clickNumber (9)">9</button>
+        <button onclick="clickNumber ('*')">*</button>
+        <br>
+        <button onclick="clickNumber (4)">4</button>
+        <button onclick="clickNumber (5)">5</button>
+        <button onclick="clickNumber (6)">6</button>
+        <button onclick="clickNumber ('-')">-</button>
+        <br>
+        <button onclick="clickNumber (1)">1</button>
+        <button onclick="clickNumber (2)">2</button>
+        <button onclick="clickNumber (3)">3</button>
+        <button onclick="clickNumber ('+')">+</button>
+        <br>
+        <button id="zero" onclick="clickNumber (0)">0</button>
+        <button onclick="clickNumber ('.')">.</button>
+        <button id="convert" onclick="calculate ()">=</button>
+     </div>
+</body>
+<script>
+    function clickNumber(value) {
+        document.getElementById("screen").value += value;
+    }
+
+    function calculate() {
+        let cal = document.getElementById("screen").value;
+        let result = eval(cal);
+        display(result);
+    }
+    // step moi hien ket qua, chua xoa duoc du lieu cu
+
+    function display(value) {
+        document.getElementById("screen").value = value;
+    }
+
+    function clearScreen() {
+        document.getElementById("screen").value = 0;
+    }
+
+    function del() {
+        let str = document.getElementById("screen").value;
+        let res = str.substring(0, str.length-1);
+        display(res);
+    }
+</script>
+
+</html>
